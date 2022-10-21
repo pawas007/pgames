@@ -1,17 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import auth from "@/router/auth";
+import pages from "@/router/pages";
 
 Vue.use(VueRouter)
 
 const routes = [
     ...auth,
+    ...pages
 
-  {
-    path: '/',
-    name: 'home',
-    component: () => import(/* webpackChunkName: "about" */ '../views/Home/HomeView')
-  }
 ]
 
 const router = new VueRouter({

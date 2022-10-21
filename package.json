@@ -8,9 +8,15 @@
   },
   "dependencies": {
     "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14",
+    "vee-validate": "^3.4.14",
+    "vue": "^2.7.13",
     "vue-router": "^3.5.1",
+    "vue-toastification": "^1.7.14",
+    "vueperslides": "^2.15.3",
+    "vuetify": "^2.6.12",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

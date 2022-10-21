@@ -11,16 +11,17 @@ const mutations = {
 }
 
 const actions = {
-    LOGIN:  (context, data) => {
-        return axios.post('login', data)
-    },
-
-    GET_SINGLE_USER:  (context) => {
-        return  axios.get('/user')
-
+    LOGIN: (context, data) => {
+        return axios.post('login', data).then(r => {
+            if (!data.remember) {
+                sessionStorage.setItem('token', r.data.token)
+            } else {
+                localStorage.setItem('token', r.data.token)
+            }
+        })
     },
     GET_AUTH_USER: async (context) => {
-        return     await axios.get('/user')
+        return await axios.get('/user')
             .then(response => {
                 context.commit('SET_AUTH_USER', response.data);
             })
@@ -34,6 +35,9 @@ const actions = {
 
     },
 
+    FORGOT_PASSWORD: (context, data) => {
+        return axios.post('password/email', data)
+    },
 
     LOGOUT: (context) => {
         return axios.post('/logout')
