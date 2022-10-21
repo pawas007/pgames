@@ -62,7 +62,11 @@ export default {
         {
           title: 'Privacy policy',
           name: 'privacy-policy',
-          params:{id:34}
+
+        },
+        {
+          title: 'About',
+          name: 'about',
         },
         {
           title: 'Category',
