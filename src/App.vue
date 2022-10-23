@@ -1,13 +1,37 @@
 <template>
-   <component :is="layout"/>
+  <div id="app" class="position-relative">
+    <full-loader v-if="overlay"/>
+    <component :is="layout"/>
+  </div>
 </template>
 <script>
 import Default from "@/layouts/default";
 import Blank from "@/layouts/blank";
+import Account from "@/layouts/account";
+import Admin from "@/layouts/admin";
+import {mapActions} from "vuex";
+import FullLoader from "@/components/Loaders/FullLoader";
+import '@/assets/scss/custom.scss'
 
 
 export default {
-  components: {Blank, Default},
+  components: {FullLoader, Blank, Default, Admin, Account},
+  data: () => {
+    return {
+      overlay: true
+    }
+  },
+  methods: {
+    ...mapActions(['GET_AUTH_USER']),
+  },
+  mounted() {
+    this.GET_AUTH_USER().finally(() => {
+      setTimeout(() => {
+        this.overlay = false
+      }, 1000)
+
+    })
+  },
   computed: {
     layout() {
       const layout = this.$route.meta.layout || 'default'
@@ -16,14 +40,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-@import "assets/css/bootstrap-reboot.min.css";
-@import "assets/css/bootstrap-grid.min.css";
-@import "assets/css/owl.carousel.min.css";
-@import "assets/css/magnific-popup.css";
-@import "assets/css/nouislider.min.css";
-@import "assets/css/jquery.mCustomScrollbar.min.css";
-@import "assets/css/paymentfont.min.css";
-@import "assets/css/main.css";
-@import "assets/scss/custom.scss";
-</style>

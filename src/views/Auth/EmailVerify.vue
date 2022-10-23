@@ -12,9 +12,9 @@
         <div class="col-12">
           <div class="sign__content">
             <div class="sign__form" v-if="!overlay">
-              <a href="index.html" class="sign__logo">
+              <router-link :to="{name:'home'}" class="sign__logo">
                 <img src="@/assets/img/logo.svg" alt="">
-              </a>
+              </router-link>
               <div class="alreadyVerify" v-if="status === 200">
                 <span class="sign__text">Already verified</span>
                 <router-link :to="{name:'login'}" class="sign__btn" type="button">Login</router-link>

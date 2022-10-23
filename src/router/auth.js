@@ -4,6 +4,7 @@ export default [
         name: 'login',
         component: () => import('@/views/Auth/Login.vue'),
         meta: {
+            authRoute:true,
             layout: 'blank',
         }
 
@@ -13,6 +14,7 @@ export default [
         name: 'register',
         component: () => import('@/views/Auth/Register.vue'),
         meta: {
+            authRoute:true,
             layout: 'blank',
         }
     },
@@ -22,6 +24,7 @@ export default [
         name: 'forgot-password',
         component: () => import('@/views/Auth/ForgotPassword.vue'),
         meta: {
+            authRoute:true,
             layout: 'blank',
         },
     },
@@ -30,6 +33,7 @@ export default [
         name: 'email-resend',
         component: () => import('@/views/Auth/EmailVerifyResend.vue'),
         meta: {
+            authRoute:true,
             layout: 'blank',
         },
     },
@@ -38,6 +42,7 @@ export default [
         name: 'email-verify',
         component: () => import('@/views/Auth/EmailVerify.vue'),
         meta: {
+            authRoute:true,
             layout: 'blank',
         },
     },
@@ -46,7 +51,20 @@ export default [
         name: 'reset-password',
         component: () => import('@/views/Auth/ResetPassword.vue'),
         meta: {
+            authRoute:true,
             layout: 'blank',
         },
     },
+
+    {
+        path: '/authorize/:provider/callback',
+        name: 'authorize-social',
+        component: () => import('@/views/Auth/SocialRedirect'),
+        meta: {
+            authRoute:true,
+            layout: 'blank',
+        }
+    },
+
+
 ]

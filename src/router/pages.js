@@ -1,5 +1,5 @@
 export default [
-    { path: '/404', component: () => import('@/views/404' ),
+    { path: '/404', component: () => import('@/views/404.vue' ),
         meta: {
             layout: 'blank',
         },
@@ -41,6 +41,22 @@ export default [
                 },
                 {
                     name: "About"
+                },
+            ]
+        }
+    },
+    {
+        path: '/contact-us',
+        name: 'contact-us',
+        component: () => import('@/views/ContactUs/ContactUs'),
+        meta: {
+            breadcrumb: [
+                {
+                    name: "Home",
+                    link: "home"
+                },
+                {
+                    name: "Contact Us"
                 },
             ]
         }

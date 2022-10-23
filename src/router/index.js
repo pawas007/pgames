@@ -2,12 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import auth from "@/router/auth";
 import pages from "@/router/pages";
+import account from "@/router/account";
+import admin from "@/router/admin";
 
 Vue.use(VueRouter)
 
 const routes = [
     ...auth,
-    ...pages
+    ...pages,
+    ...account,
+    ...admin
 
 ]
 

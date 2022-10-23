@@ -1,24 +1,6 @@
 <template>
   <div class="header__actions">
-    <div class="header__lang">
-      <a class="header__lang-btn" href="#" role="button" id="dropdownMenuLang" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false">
-        <img src="@/assets/img/flags/uk.svg" alt="">
-        <span>EN</span>
-        <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
-          <path
-              d='M98,190.06,237.78,353.18a24,24,0,0,0,36.44,0L414,190.06c13.34-15.57,2.28-39.62-18.22-39.62H116.18C95.68,150.44,84.62,174.49,98,190.06Z'/>
-        </svg>
-      </a>
-
-      <ul class="dropdown-menu header__lang-menu" aria-labelledby="dropdownMenuLang">
-        <li><a href="#"><img src="@/assets/img/flags/spain.svg" alt=""><span>SP</span></a></li>
-        <li><a href="#"><img src="@/assets/img/flags/russia.svg" alt=""><span>RU</span></a></li>
-        <li><a href="#"><img src="@/assets/img/flags/china.svg" alt=""><span>CH</span></a></li>
-      </ul>
-    </div>
-
-    <a href="signin.html" class="header__login">
+    <router-link :to="{name:'login'}" class="header__login" v-if="!AUTH_USER">
       <svg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'>
         <path
             d='M192,176V136a40,40,0,0,1,40-40H392a40,40,0,0,1,40,40V376a40,40,0,0,1-40,40H240c-22.09,0-48-17.91-48-40V336'
@@ -29,13 +11,29 @@
               style='fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/>
       </svg>
       <span>Sign in</span>
-    </a>
+    </router-link>
+    <b-dropdown right :text="AUTH_USER.name" class="login_header_btn" v-else>
+      <b-dropdown-item @click="$router.push({name:'account-dashboard'})">Account</b-dropdown-item>
+      <b-dropdown-divider></b-dropdown-divider>
+      <b-dropdown-item @click="LOGOUT">Logout</b-dropdown-item>
+    </b-dropdown>
+
   </div>
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex'
+import {BDropdown, BDropdownItem} from 'bootstrap-vue'
+
 export default {
-name: "HeaderActions"
+  name: "HeaderActions",
+  comments: {BDropdown, BDropdownItem},
+  methods:{
+    ...mapActions(['LOGOUT'])
+  },
+  computed: {
+    ...mapGetters(['AUTH_USER'])
+  }
 }
 </script>
 

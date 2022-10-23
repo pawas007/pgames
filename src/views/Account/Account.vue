@@ -1,11 +1,16 @@
 <template>
-  <div class="black_layout">
+  <div>
     <router-view/>
   </div>
+
 </template>
 
 <script>
 export default {
-name: "blank"
+name: "Account"
 }
 </script>
+
+<style scoped>
+
+</style>

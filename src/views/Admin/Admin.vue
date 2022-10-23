@@ -1,11 +1,15 @@
 <template>
-  <div class="black_layout">
+  <div>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-name: "blank"
+  name: "Admin"
 }
 </script>
+
+<style scoped>
+
+</style>

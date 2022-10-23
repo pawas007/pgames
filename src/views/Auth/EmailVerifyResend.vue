@@ -6,9 +6,9 @@
         <div class="col-12">
           <validation-observer #default="{ handleSubmit }" ref="resendEmail" class="sign__content">
             <form class="sign__form" @submit.stop.prevent="handleSubmit(submit)">
-              <a href="index.html" class="sign__logo">
+              <router-link :to="{name:'home'}" class="sign__logo">
                 <img src="@/assets/img/logo.svg" alt="">
-              </a>
+              </router-link>
               <validation-provider
                   vid="email"
                   tag="div"

@@ -1,19 +1,7 @@
 <template>
   <div>
-    <section class="section section--first section--last section--head" data-bg="img/bg.jpg">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section__wrap">
-              <!-- section title -->
-              <h2 class="section__title">About</h2>
-              <BreadcrumbsDefault/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="section section--first section--bg">
+    <BreadcrumbsDefault/>
+    <section class="section ">
       <div class="container">
         <!-- article -->
         <div class="article">
