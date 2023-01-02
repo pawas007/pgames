@@ -49,7 +49,7 @@ const actions = {
         })
     },
     GET_AUTH_USER: async (context) => {
-        return await axios.get('auth/user')
+        return await axios.get('user/auth')
             .then(response => {
                 context.commit('SET_AUTH_USER', response.data);
             }).catch((err) => {
